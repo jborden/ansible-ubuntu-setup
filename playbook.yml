@@ -1,0 +1,4 @@
+- name: Ubuntu desktop environment playbook
+  hosts: localhost
+  roles:
+    - { role: xwin, become: false}
