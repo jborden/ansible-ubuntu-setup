@@ -1,0 +1,14 @@
+# from https://askubuntu.com/questions/749660/how-can-i-persistently-remap-keys-in-ubuntu-16-04
+# to determine which key code, run xev in terminal
+# 66 - CAPS LOCK
+# 37 - CTRL
+- name: check if caps lock alias has been activated
+  shell: grep "ctrl:nocaps" /etc/default/keyboard
+  register: grep_caps_eq_lctl
+  changed_when: false
+  ignore_errors: true
+
+- name: change backspace to ctrl
+  become: true
+  shell: perl -pi -e 's/^XKBOPTION.*$/XKBOPTIONS="ctrl:nocaps"/' /etc/default/keyboard
+  when: grep_caps_eq_lctl is failed

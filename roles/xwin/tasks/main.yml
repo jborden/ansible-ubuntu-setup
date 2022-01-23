@@ -1,3 +1,0 @@
-- name: Create default xinitrc config file
-  copy: src="xinitrc" dest="{{ ansible_env.HOME }}/.xinitrc" owner="{{ ansible_env.USER }}" group="{{ ansible_env.USER }}"
-

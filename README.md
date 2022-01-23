@@ -10,6 +10,14 @@ of macOS.
 sudo apt install ansible
 ```
 
+2. enable passwordless sudo
+```
+sudo visudo
+```
+
+change the line
+%sudo  ALL=(ALL:ALL) ALL
+%sudo  ALL=(ALL:ALL) NOPASSWD: ALL
 # Run Playbook
 
 ```
